@@ -13,7 +13,9 @@ export HOMEBREW_CASK_OPTS="--no-quarantine"
 # Change ZSH Options
 
 # Create Alias
-alias ls='ls -lAFh'
+#alias ls='ls -lAFh'
+alias ls='exa -laFh --git'
+alias exa='exa -laFh --git'
 
 # Customisze Prompts
 PROMPT='
