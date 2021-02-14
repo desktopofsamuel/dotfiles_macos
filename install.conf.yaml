@@ -7,10 +7,10 @@
 - link:
     ~/.zshrc:
     ~/.gitconfig:
+    
 
-# - create:
-#    - ~/downloads
-#    - ~/.vim/undo-history
+- create:
+    - ~/Developer
 
 - shell:
     #  - [git submodule update --init --recursive, Installing submodules]
