@@ -56,6 +56,5 @@ cd ~/.dotfiles && brew bundle
 - Integrate other cloud services into your Dotfiles process (Dropbox, Google Drive, etc.).
 - Find inspiration and examples in other Doffiles repositories at [dotfiles.github.io](https://dotfiles.github.io/).
 - And last, but hopefully not least, [**take my course, _Dotfiles from Start to Finish-ish_**](https://www.udemy.com/course/dotfiles-from-start-to-finish-ish/?referralCode=445BE0B541C48FE85276 "Learn Dotfiles from Start to Finish-ish on Udemy")!
-- Homebrew Install
 
 ## Thank You!
