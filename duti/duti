@@ -1,0 +1,24 @@
+# Duti configuration file – for setting default file handlers
+#
+# blank lines and lines beginning with a '#' are ignored
+# Documentation: Man Page duti
+#
+# Determine the bundle bundle ID via
+#     mdls /Applications/iPhoto.app | grep kMDItemCF
+# Determine the UTI via
+#     mdls file.ext | grep kMDItemContentType
+#
+# bundle id		       			 UTI/Extension		   	   role (all, viewer, editor, shell, none)
+
+# Text Files
+
+# Configuration Files
+
+# Source Code
+com.microsoft.VSCode         json                  all
+# Other Files
+
+# Media Files
+
+#bundle ids
+#com.microsoft.VSCode

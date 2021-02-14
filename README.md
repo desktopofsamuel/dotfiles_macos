@@ -63,6 +63,8 @@ cd ~/.dotfiles && brew bundle
 
 ## Samuel's Todo List:
 
-- [ ] macOS System Preference Autmoation
+- [ ] macOS System Preference Automation
+- [x] Find package for default macOS app
+- [ ] Automate duti list of apps
 - [x] Backup VSCode
-- [ ] Automate symlink when reinstall
+- [x] Automate symlink when reinstall
