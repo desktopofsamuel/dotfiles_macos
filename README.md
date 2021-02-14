@@ -4,7 +4,7 @@
 
 ## Usual Command
 
-- `brew bundle dump --describe` for updating brew installs to dotfile
+- `brew bundle dump --describe --force --file brew/Brewfile ` for updating brew installs to dotfile
 
 ## Steps to bootstrap a new Mac
 

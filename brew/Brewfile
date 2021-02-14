@@ -13,8 +13,8 @@ brew "mas"
 brew "wimlib"
 # JavaScript package manager
 brew "yarn"
-# Git client focusing on productivity
-cask "gitkraken"
+# Menu bar calendar
+cask "itsycal"
 # Emoji picker optimized for blind people
 cask "rocket"
 # Tool to hide menu bar icons
