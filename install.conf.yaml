@@ -2,22 +2,18 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.zshrc:
     ~/.gitconfig:
-
 
 # - create:
 #    - ~/downloads
 #    - ~/.vim/undo-history
 
 - shell:
-#  - [git submodule update --init --recursive, Installing submodules]
-    - echo "hey you guys"
-    - sleep 2
-    -
-      command: ./test.zsh
+    #  - [git submodule update --init --recursive, Installing submodules]
+    - command: ./setup_homebrew.zsh
       stdout: true
       stderr: true
