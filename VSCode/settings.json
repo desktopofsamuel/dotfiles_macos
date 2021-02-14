@@ -1,0 +1,24 @@
+{
+    "workbench.colorTheme": "Material Theme Darker",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.validate.enable": false,
+    "editor.formatOnSave": true,
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.tabSize": 2,
+    "git.enableSmartCommit": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "git.confirmSync": false,
+    "editor.wordWrap": "bounded",
+    "editor.wrappingIndent": "indent"
+}
