@@ -15,6 +15,10 @@ brew "wimlib"
 brew "yarn"
 # Git client focusing on productivity
 cask "gitkraken"
+# Emoji picker optimized for blind people
+cask "rocket"
+# Tool to hide menu bar icons
+cask "vanilla"
 mas "Battery Monitor", id: 836505650
 mas "Bear", id: 1091189122
 mas "Codeshot", id: 1541665460
@@ -31,7 +35,6 @@ mas "Pages", id: 409201541
 mas "PDF Squeezer 3", id: 504700302
 mas "Reeder", id: 1449412482
 mas "Slack", id: 803453959
-mas "Snappy", id: 512617038
 mas "Spaces", id: 1509611686
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
