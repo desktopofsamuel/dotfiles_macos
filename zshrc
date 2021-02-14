@@ -5,6 +5,9 @@ export NVM_DIR="/Users/samuelisme/.nvm"
 
 # Set Variables
 
+# Syntax highlighting for man pages using bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Change ZSH Options
 
 # Create Alias
