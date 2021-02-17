@@ -15,14 +15,13 @@ brew "mas"
 brew "wimlib"
 # JavaScript package manager
 brew "yarn"
+cask "figma"
 # Menu bar calendar
 cask "itsycal"
 # Emoji picker optimized for blind people
 cask "rocket"
 # Tool to hide menu bar icons
 cask "vanilla"
-mas "Battery Monitor", id: 836505650
-mas "Bear", id: 1091189122
 mas "Codeshot", id: 1541665460
 mas "Evernote", id: 406056744
 mas "FormatMatch", id: 445211988
