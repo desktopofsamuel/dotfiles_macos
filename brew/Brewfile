@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
@@ -15,13 +16,21 @@ brew "mas"
 brew "wimlib"
 # JavaScript package manager
 brew "yarn"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
 cask "figma"
+# Web browser
+cask "firefox-developer-edition"
 # Menu bar calendar
 cask "itsycal"
 # Emoji picker optimized for blind people
 cask "rocket"
+# Open-source BitTorrent client
+cask "transmission"
 # Tool to hide menu bar icons
 cask "vanilla"
+# Video communication and virtual meeting platform
+cask "zoom"
 mas "Codeshot", id: 1541665460
 mas "Evernote", id: 406056744
 mas "FormatMatch", id: 445211988
@@ -34,9 +43,7 @@ mas "Messenger", id: 1480068668
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PDF Squeezer 3", id: 504700302
-mas "Reeder", id: 1449412482
 mas "Slack", id: 803453959
-mas "Spaces", id: 1509611686
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
 mas "Todoist", id: 585829637
