@@ -21,8 +21,12 @@ cask "1password"
 cask "figma"
 # Web browser
 cask "firefox-developer-edition"
+# Desktop client for GitHub repositories
+cask "github"
 # Menu bar calendar
 cask "itsycal"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Emoji picker optimized for blind people
 cask "rocket"
 # Open-source BitTorrent client
