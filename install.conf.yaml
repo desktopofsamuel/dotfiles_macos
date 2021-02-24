@@ -9,6 +9,8 @@
       path: zshrc
     ~/.gitconfig:
       path: git/gitconfig
+    ~/.mackup.cfg:
+      path: mackup/mackup.cfg
     # VSCode
     ~/Library/Application Support/Code/User/settings.json:
       path: vscode/settings.json
