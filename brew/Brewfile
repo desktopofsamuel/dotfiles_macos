@@ -10,8 +10,12 @@ brew "duti"
 brew "exa"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Keep your Mac's application settings in sync
+brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
+# SMART hard drive monitoring
+brew "smartmontools"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
 # JavaScript package manager
@@ -51,8 +55,6 @@ mas "Slack", id: 803453959
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
 mas "Todoist", id: 585829637
-mas "Trello", id: 1278508951
-mas "Twitter", id: 1482454543
 mas "UnPlugged", id: 423123087
 mas "Unsplash Wallpapers", id: 1284863847
 mas "WhatsApp", id: 1147396723

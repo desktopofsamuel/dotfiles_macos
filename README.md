@@ -1,10 +1,9 @@
 # dotfiles_macos
 
-# Beyond Dotfiles in 100 Seconds
-
-## Usual Command
+## Commands
 
 - `brew bundle dump --describe --force --file brew/Brewfile ` for updating brew installs to dotfile
+- `smartctl -a disk1s1` for checking percentage usage for SSD
 
 ## Steps to bootstrap a new Mac
 
@@ -65,6 +64,6 @@ cd ~/.dotfiles && brew bundle
 
 - [ ] macOS System Preference Automation
 - [x] Find package for default macOS app
-- [ ] Automate duti list of apps
+- [x] Automate duti list of apps
 - [x] Backup VSCode
 - [x] Automate symlink when reinstall
