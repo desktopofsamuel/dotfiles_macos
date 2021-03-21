@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Material Theme Darker",
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
     "terminal.integrated.shell.osx": "/bin/zsh",
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
