@@ -41,6 +41,8 @@ com.microsoft.VSCode .h all
 com.microsoft.VSCode .ics all
 com.microsoft.VSCode .java all
 com.microsoft.VSCode .js all
+com.microsoft.VSCode .jsx all
+com.microsoft.VSCode .tsx all
 com.microsoft.VSCode .json all
 com.microsoft.VSCode .m all
 com.microsoft.VSCode .php all
@@ -55,6 +57,8 @@ com.microsoft.VSCode .zsh all
 com.microsoft.VSCode .link all
 com.microsoft.VSCode .sh all
 com.microsoft.VSCode .yaml all
+com.microsoft.VSCode .md all
+com.microsoft.VSCode .mdx all
 
 # Other Files
 
