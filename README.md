@@ -50,7 +50,7 @@ cd ~/.dotfiles && brew bundle
 
 ## TODO List
 
-- Learn how to use [`defaults`](https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command) to record and restore System Preferences and other macOS configurations.
+<!-- - Learn how to use [`defaults`](https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command) to record and restore System Preferences and other macOS configurations.
 - Organize these growing steps into multiple script files.
 - Automate symlinking and run script files with a bootstrapping tool like [Dotbot](https://github.com/anishathalye/dotbot).
 - Revisit the list in [`.zshrc`](.zshrc) to customize the shell.
@@ -58,12 +58,15 @@ cd ~/.dotfiles && brew bundle
 - Create a [bootable USB installer for macOS](https://support.apple.com/en-us/HT201372).
 - Integrate other cloud services into your Dotfiles process (Dropbox, Google Drive, etc.).
 - Find inspiration and examples in other Doffiles repositories at [dotfiles.github.io](https://dotfiles.github.io/).
-- And last, but hopefully not least, [**take my course, _Dotfiles from Start to Finish-ish_**](https://www.udemy.com/course/dotfiles-from-start-to-finish-ish/?referralCode=445BE0B541C48FE85276 "Learn Dotfiles from Start to Finish-ish on Udemy")!
+- And last, but hopefully not least, [**take my course, _Dotfiles from Start to Finish-ish_**](https://www.udemy.com/course/dotfiles-from-start-to-finish-ish/?referralCode=445BE0B541C48FE85276 "Learn Dotfiles from Start to Finish-ish on Udemy")! -->
 
 ## Samuel's Todo List:
 
-- [ ] macOS System Preference Automation
+- [x] macOS System Preference Automation
 - [x] Find package for default macOS app
 - [x] Automate duti list of apps
 - [x] Backup VSCode
 - [x] Automate symlink when reinstall
+- [x] Three finger drag
+- [ ] Finder's favorite list
+- [ ] Keyboard shortcut (Command + Space & Alt + Space)
