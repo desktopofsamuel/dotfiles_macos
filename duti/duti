@@ -51,10 +51,20 @@ com.microsoft.VSCode .scpt all
 com.microsoft.VSCode .sh all
 com.microsoft.VSCode .sql all
 com.microsoft.VSCode .ts all
+com.microsoft.VSCode .zsh all
+com.microsoft.VSCode .link all
+com.microsoft.VSCode .sh all
+com.microsoft.VSCode .yaml all
 
 # Other Files
 
+org.m0k.transmission .torrent all
+
 # Media Files
+
+org.videolan.vlc .mp4 all
 
 #bundle ids
 #com.microsoft.VSCode
+
+
