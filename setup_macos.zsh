@@ -20,6 +20,29 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool false
 
 ###############################################################################
+# Dock                                                                        #
+###############################################################################
+
+# Dock position set to left (default: buttom)
+defaults write com.apple.dock "orientation" -string "left"
+
+# Dock icon size set to 36px (default: 48px)
+defaults write com.apple.dock "tilesize" -int "36"
+
+###############################################################################
+# Screenshot                                                                  #
+###############################################################################
+
+# Create a folder for screenshot
+mkdir ../Screenshots
+
+# Set screen capture default location at folder
+defaults write com.apple.screencapture "location" -string "~/Screenshots"
+
+# Remove screenshot thumbnail display at bottom right corner, causing delay
+defaults write com.apple.screencapture "show-thumbnail" -bool "false"
+
+###############################################################################
 # Energy saving                                                               #
 ###############################################################################
 
@@ -50,6 +73,7 @@ sudo pmset -b sleep 15
 # Finish macOS Setup
 killall Finder
 killall Dock
+killall SystemUIServer
 echo "\n<<< macOS Setup Complete.
     Logout or restart might be necessary. >>>\n"
 
