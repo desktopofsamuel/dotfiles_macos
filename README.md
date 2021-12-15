@@ -17,10 +17,10 @@ xcode-select --install
 
 ```zsh
 # Use SSH (if set up)...
-git clone git@github.com:eieioxyz/Beyond-Dotfiles-in-100-Seconds.git ~/.dotfiles
+git clone git@github.com/desktopofsamuel/dotfiles_macos.git ~/.dotfiles
 
 # ...or use HTTPS and switch remotes later.
-git clone https://github.com/eieioxyz/Beyond-Dotfiles-in-100-Seconds.git ~/.dotfiles
+git clone https://github.com/desktopofsamuel/dotfiles_macos.git ~/.dotfiles
 ```
 
 3. Create symlinks in the Home directory to the real files in the repo.

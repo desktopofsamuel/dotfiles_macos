@@ -20,5 +20,6 @@
     "editor.minimap.enabled": false,
     "git.confirmSync": false,
     "editor.wordWrap": "bounded",
-    "editor.wrappingIndent": "indent"
+    "editor.wrappingIndent": "indent",
+    "debug.javascript.autoAttachFilter": "onlyWithFlag"
 }
