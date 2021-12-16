@@ -1,0 +1,133 @@
+# Duti Config File
+#
+# blank lines and lines beginning with a '#' are ignored
+# Documentation: man page duti
+#
+# Commands:
+# Search existing file type:
+#     duti -x mp4
+#
+# Determine the bundle bundle ID via
+#     mdls /Applications/iPhoto.app | grep kMDItemCF
+#
+# Determine the UTI via
+#     mdls file.ext | grep kMDItemContentType
+#
+# Format
+# bundle id     UTI/Extension     role (all, viewer, editor, shell, none)
+# 
+# Help
+# Include a carriage return at the end of the last line of the file; otherwise
+# will return "The line is too long" message.
+#
+#
+# Configuration Files
+
+# Text files
+com.microsoft.VSCode markdown all
+com.microsoft.VSCode md all
+abnerworks.Typora plist all
+abnerworks.Typora plist all
+
+# Images files
+com.apple.Preview .ai all
+com.apple.Preview .bmp all
+com.apple.Preview .jpeg all
+com.apple.Preview .jpg all
+com.apple.Preview .pdf all
+com.apple.Preview .png all
+com.apple.Preview .ps all
+com.apple.Preview .psd all
+com.apple.Preview .tif all
+com.apple.Preview .tiff all
+
+# Code files
+com.microsoft.VSCode .applescript all
+com.microsoft.VSCode .bat all
+com.microsoft.VSCode .c all
+com.microsoft.VSCode .clj all
+com.microsoft.VSCode .cpp all
+com.microsoft.VSCode .coffee all
+com.microsoft.VSCode .cs all
+com.microsoft.VSCode .css all
+com.microsoft.VSCode .csv all
+com.microsoft.VSCode .duti all
+com.microsoft.VSCode .h all
+com.microsoft.VSCode .htm editor
+com.microsoft.VSCode .html editor
+com.microsoft.VSCode .ics all
+com.microsoft.VSCode .java all
+com.microsoft.VSCode .js all
+com.microsoft.VSCode .jsx all
+com.microsoft.VSCode .tsx all
+com.microsoft.VSCode .json all
+com.microsoft.VSCode .m all
+com.microsoft.VSCode .php all
+com.microsoft.VSCode .pl all
+com.microsoft.VSCode .py all
+com.microsoft.VSCode .r all
+com.microsoft.VSCode .scpt all
+com.microsoft.VSCode .sh all
+com.microsoft.VSCode .sql all
+com.microsoft.VSCode .ts all
+com.microsoft.VSCode .zsh all
+com.microsoft.VSCode .link all
+com.microsoft.VSCode .sh all
+com.microsoft.VSCode .yaml all
+com.microsoft.VSCode .md all
+com.microsoft.VSCode .mdx all
+
+# Torrent files
+
+org.m0k.transmission .torrent all
+
+# Video files
+org.videolan.vlc .3gp all
+org.videolan.vlc .asf all
+org.videolan.vlc .asx all
+org.videolan.vlc .avi all
+org.videolan.vlc .flv all
+org.videolan.vlc .mkv all
+org.videolan.vlc .mov all
+org.videolan.vlc .mp4 all
+org.videolan.vlc .mpg all
+org.videolan.vlc .ogm all
+org.videolan.vlc .rm all
+org.videolan.vlc .swf all
+org.videolan.vlc .vob all
+org.videolan.vlc .webm all
+org.videolan.vlc .wmv all
+
+# Audio files
+org.videolan.vlc .aac all
+org.videolan.vlc .aif all
+org.videolan.vlc .flac all
+org.videolan.vlc .iff all
+org.videolan.vlc .m3u all
+org.videolan.vlc .mid all
+org.videolan.vlc .mp3 all
+org.videolan.vlc .mpa all
+org.videolan.vlc .ogg all
+org.videolan.vlc .ra all
+org.videolan.vlc .wav all
+
+# Compressed files
+cx.c3.theunarchiver .7z all
+cx.c3.theunarchiver .cab all
+cx.c3.theunarchiver .gtar all
+cx.c3.theunarchiver .gz all
+cx.c3.theunarchiver .hqx all
+cx.c3.theunarchiver .jar all
+cx.c3.theunarchiver .msi all
+cx.c3.theunarchiver .rar all
+cx.c3.theunarchiver .sit all
+cx.c3.theunarchiver .sit all
+cx.c3.theunarchiver .tar all
+cx.c3.theunarchiver .tar.gz all
+cx.c3.theunarchiver .tgz all
+cx.c3.theunarchiver .zip all
+
+#bundle ids
+#com.microsoft.VSCode
+
+

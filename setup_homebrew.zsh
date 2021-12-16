@@ -7,4 +7,4 @@ echo "\n<<< Starting Homebrew Setup >>>\n"
 brew bundle --verbose --file brew/Brewfile
 
 echo "\n<<< Default File Extensions Setup >>>\n"
-duti duti/duti
+duti ./extensions.duti
