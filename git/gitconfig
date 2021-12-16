@@ -4,5 +4,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [user]
-	name = Samuel W.
+	name = Samuel Wong
 	email = 35249407+desktopofsamuel@users.noreply.github.com

@@ -20,8 +20,6 @@ brew "smartmontools"
 brew "wimlib"
 # JavaScript package manager
 brew "yarn"
-# Password manager that keeps all passwords secure behind one password
-cask "1password"
 # Status monitoring
 cask "eul"
 # Collaborative team software
@@ -30,6 +28,8 @@ cask "figma"
 cask "firefox-developer-edition"
 # Desktop client for GitHub repositories
 cask "github"
+# Web browser
+cask "google-chrome"
 # Menu bar calendar
 cask "itsycal"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -44,10 +44,12 @@ cask "vanilla"
 cask "zoom"
 mas "Codeshot", id: 1541665460
 mas "Evernote", id: 406056744
-mas "FormatMatch", id: 445211988
+mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
 mas "HP Easy Scan", id: 967004861
 mas "HP Smart", id: 1474276998
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Klib", id: 1196268448
 mas "LastPass", id: 926036361
 mas "Messenger", id: 1480068668
