@@ -74,6 +74,6 @@ sudo pmset -b sleep 15
 killall Finder
 killall Dock
 killall SystemUIServer
-echo "\n<<< macOS Setup Complete.
-    Logout or restart might be necessary. >>>\n"
+
+echo "\n<<< macOS Setup Complete. Restart >>>\n"
 
