@@ -14,12 +14,18 @@ brew "httpie"
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
+# Platform built on V8 to build network applications
+brew "node"
+# Manage multiple Node.js versions
+brew "nvm"
 # SMART hard drive monitoring
 brew "smartmontools"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
 # JavaScript package manager
 brew "yarn"
+# Application launcher and productivity software
+cask "alfred"
 # Status monitoring
 cask "eul"
 # Collaborative team software
@@ -36,10 +42,14 @@ cask "itsycal"
 cask "obsidian"
 # Emoji picker optimized for blind people
 cask "rocket"
+# Music streaming service
+cask "spotify"
 # Open-source BitTorrent client
 cask "transmission"
 # Tool to hide menu bar icons
 cask "vanilla"
+# Open-source code editor
+cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Codeshot", id: 1541665460
