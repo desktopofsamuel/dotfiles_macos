@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+echo "\n<<< Setup NVM >>>\n"
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
 echo "\n<<< Starting Homebrew Setup >>>\n"
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

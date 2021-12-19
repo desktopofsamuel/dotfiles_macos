@@ -70,3 +70,4 @@ cd ~/.dotfiles && brew bundle
 - [x] Three finger drag
 - [ ] Finder's favorite list
 - [ ] Keyboard shortcut (Command + Space & Alt + Space)
+- [ ] Confirm NVM works (create new .nvm folder and add NVM install script)
