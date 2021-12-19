@@ -26,6 +26,8 @@ brew "wimlib"
 brew "yarn"
 # Application launcher and productivity software
 cask "alfred"
+# Application window manager focusing on simplicity
+cask "divvy"
 # Status monitoring
 cask "eul"
 # Collaborative team software
@@ -36,10 +38,14 @@ cask "firefox-developer-edition"
 cask "github"
 # Web browser
 cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
 # Menu bar calendar
 cask "itsycal"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Collaboration platform for API development
+cask "postman"
 # Emoji picker optimized for blind people
 cask "rocket"
 # Music streaming service
@@ -53,6 +59,7 @@ cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Codeshot", id: 1541665460
+mas "Craft", id: 1487937127
 mas "Evernote", id: 406056744
 mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
