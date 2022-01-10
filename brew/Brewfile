@@ -1,5 +1,7 @@
+tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -24,10 +26,14 @@ brew "smartmontools"
 brew "wimlib"
 # JavaScript package manager
 brew "yarn"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
 # Application launcher and productivity software
 cask "alfred"
 # Application window manager focusing on simplicity
 cask "divvy"
+# Management software and drivers for Data Robotics storage devices
+cask "drobo-dashboard"
 # Status monitoring
 cask "eul"
 # Collaborative team software
@@ -42,6 +48,8 @@ cask "google-chrome"
 cask "google-drive"
 # Menu bar calendar
 cask "itsycal"
+# App to manage software development and track bugs
+cask "linear-linear"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Collaboration platform for API development
