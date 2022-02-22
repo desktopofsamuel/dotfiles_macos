@@ -6,3 +6,5 @@
 [user]
 	name = Samuel Wong
 	email = 35249407+desktopofsamuel@users.noreply.github.com
+[init]
+	defaultBranch = main
