@@ -61,8 +61,6 @@ cask "monitorcontrol"
 cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
-# Emoji picker optimized for blind people
-cask "rocket"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # Music streaming service

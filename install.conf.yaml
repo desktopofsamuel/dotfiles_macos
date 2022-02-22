@@ -16,6 +16,9 @@
       path: vscode/settings.json
     ~/Library/Application Support/Code/User/snippets:
       path: vscode/snippets
+    # Espanso (Text Expander)
+    ~/Library/Preferences/espanso:
+      path: espanso
 
 - create:
     - ~/Developer
