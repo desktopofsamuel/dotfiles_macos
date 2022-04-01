@@ -4,6 +4,8 @@
 # You can refer to the official documentation:
 # https://espanso.org/docs/
 
+# Reference config repo: https://github.com/Lissy93/espanso-config/blob/master/utils.yml
+
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
@@ -17,14 +19,43 @@ matches:
   - trigger: ":emp"
     replace: "samuel@playa.hk"
 
-  # Dates
+  - trigger: ":gd"
+    replace: "gatsby clean && gatsby develop"
+
+  - trigger: ":gb"
+    replace: "gatsby build"
+
+  # Outputs today date (yyyy-mm-dd)
   - trigger: ":date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
         type: date
         params:
-          format: "%m/%d/%Y"
+          format: "%Y-%m-%d"
+
+  # Outputs current time (24hr)
+  - trigger: :time
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M"
+
+  # Clipboard link to Markdown link
+  - trigger: ":mdlink"
+    replace: "[$|$]({{clipboard}})"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+
+  # Clipboard link to Markdown image
+  - trigger: ":mdimg"
+    replace: "![$|$]({{clipboard}})"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
 
   # Shell commands
   - trigger: ":shell"

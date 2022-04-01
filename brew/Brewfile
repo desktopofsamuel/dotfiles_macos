@@ -61,8 +61,12 @@ cask "monitorcontrol"
 cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
+# Collection of apps available by subscription
+cask "setapp"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# Instant messaging application focusing on security
+cask "signal"
 # Music streaming service
 cask "spotify"
 # Open-source BitTorrent client
