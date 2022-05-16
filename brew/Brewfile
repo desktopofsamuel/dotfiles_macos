@@ -53,10 +53,14 @@ cask "google-drive"
 cask "imageoptim"
 # Menu bar calendar
 cask "itsycal"
+# Tool to prevent the system from going into sleep mode
+cask "keepingyouawake"
 # App to manage software development and track bugs
 cask "linear-linear"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# App to write, plan, collaborate, and get organized
+cask "notion"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Collaboration platform for API development
@@ -75,6 +79,8 @@ cask "transmission"
 cask "vanilla"
 # Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Codeshot", id: 1541665460
