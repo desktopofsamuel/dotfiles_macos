@@ -74,3 +74,14 @@ cd ~/.dotfiles && brew bundle
 - [ ] Finder's favorite list
 - [ ] Keyboard shortcut (Command + Space & Alt + Space)
 - [ ] Confirm NVM works (create new .nvm folder and add NVM install script)
+
+---
+
+# Windows
+
+ISO on bootable USB
+
+`Shift + F10` to open CMD, `DISKPART` to create partition tool, `list disk` to list all disks, `clean` to format, `convert gpt` to make it formattable.
+
+## Setup
+Install via [Ninite](https://ninite.com/)
