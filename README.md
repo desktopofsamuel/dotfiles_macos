@@ -44,11 +44,8 @@ ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Then pass in the Brewfile location...
-brew bundle --file ~/.dotfiles/Brewfile
-
 # ...or move to the directory first.
-cd ~/.dotfiles && brew bundle
+cd ~/.dotfiles/brew && brew bundle --file
 ```
 
 ## TODO List
