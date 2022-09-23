@@ -49,6 +49,8 @@ cask "github"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Utility to hide menu bar items
+cask "hiddenbar"
 # Tool to optimize images to a smaller size
 cask "imageoptim"
 # Menu bar calendar
@@ -65,6 +67,8 @@ cask "notion"
 cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Collection of apps available by subscription
 cask "setapp"
 # Tool that provides consistent, highly configurable symbols for apps
@@ -89,6 +93,7 @@ mas "Disk Speed Test", id: 425264550
 mas "Evernote", id: 406056744
 mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
+mas "HEIC Converter", id: 1294126402
 mas "HP Easy Scan", id: 967004861
 mas "HP Smart", id: 1474276998
 mas "iMovie", id: 408981434
