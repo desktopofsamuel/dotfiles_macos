@@ -1,11 +1,9 @@
 tap "federico-terzi/espanso"
 tap "heroku/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Select default apps for documents and URL schemes on macOS
@@ -34,12 +32,6 @@ brew "yarn"
 brew "federico-terzi/espanso/espanso"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
-# Application launcher and productivity software
-cask "alfred"
-# Application window manager focusing on simplicity
-cask "divvy"
-# Management software and drivers for Data Robotics storage devices
-cask "drobo-dashboard"
 # Status monitoring
 cask "eul"
 # Collaborative team software
@@ -54,7 +46,9 @@ cask "google-chrome"
 cask "google-drive"
 # Utility to hide menu bar items
 cask "hiddenbar"
-# Tool to optimize images to a smaller size
+# Set custom Dock settings for when on different displays
+cask "hidock"
+# Tool to optimise images to a smaller size
 cask "imageoptim"
 # Tool for multi-language users
 cask "input-source-pro"
@@ -66,7 +60,7 @@ cask "keepingyouawake"
 cask "linear-linear"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
-# App to write, plan, collaborate, and get organized
+# App to write, plan, collaborate, and get organised
 cask "notion"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
@@ -92,6 +86,7 @@ cask "visual-studio-code"
 cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Codepoint", id: 6444068649
 mas "Codeshot", id: 1541665460
 mas "Disk Speed Test", id: 425264550
 mas "Evernote", id: 406056744
@@ -103,12 +98,7 @@ mas "HP Smart", id: 1474276998
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Klib", id: 1196268448
-mas "LastPass", id: 926036361
-mas "Lunacy", id: 1582493835
-mas "MarsEdit", id: 6444836021
-mas "Messenger", id: 1480068668
 mas "Numbers", id: 409203825
-mas "OpenCat", id: 6445999201
 mas "Pages", id: 409201541
 mas "PDF Squeezer 3", id: 504700302
 mas "Pure Paste", id: 1611378436
@@ -122,3 +112,26 @@ mas "Universe", id: 1211437633
 mas "UnPlugged", id: 423123087
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
+vscode "albymor.increment-selection"
+vscode "bradlc.vscode-tailwindcss"
+vscode "burkeholland.simple-react-snippets"
+vscode "dbaeumer.vscode-eslint"
+vscode "dsznajder.es7-react-js-snippets"
+vscode "eamodio.gitlens"
+vscode "equinusocio.vsc-community-material-theme"
+vscode "equinusocio.vsc-material-theme"
+vscode "equinusocio.vsc-material-theme-icons"
+vscode "esbenp.prettier-vscode"
+vscode "formulahendry.auto-rename-tag"
+vscode "github.vscode-pull-request-github"
+vscode "glenn2223.live-sass"
+vscode "johnpapa.vscode-peacock"
+vscode "kumar-harsh.graphql-for-vscode"
+vscode "mechatroner.rainbow-csv"
+vscode "mikestead.dotenv"
+vscode "ritwickdey.liveserver"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "suntobright.vscode-sftp"
+vscode "unifiedjs.vscode-mdx"
+vscode "vivaxy.vscode-conventional-commits"
+vscode "wix.vscode-import-cost"
