@@ -7,6 +7,7 @@ Switch to `.dotfiles` folder:
 - `brew bundle dump --describe --force --file brew/Brewfile ` for updating brew installs to dotfile
 - `smartctl -a disk1s1` for checking percentage usage for SSD
 - `espano register` to provide accessibility acess, then `espano start` to start using
+- `source ~/.zshrc` to reload the zshrc file
 
 ## Steps to bootstrap a new Mac
 

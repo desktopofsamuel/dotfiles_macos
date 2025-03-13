@@ -6,5 +6,12 @@
 [user]
 	name = Samuel Wong
 	email = 35249407+desktopofsamuel@users.noreply.github.com
+	signingkey = 81C02AA26076F17E
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[pull]
+	ff = true
+[credential]
+	helper = store
