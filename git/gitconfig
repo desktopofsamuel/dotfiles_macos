@@ -6,7 +6,7 @@
 [user]
 	name = Samuel Wong
 	email = 35249407+desktopofsamuel@users.noreply.github.com
-	signingkey = 81C02AA26076F17E
+	signingkey = DF06A5C3D10E85EF
 [init]
 	defaultBranch = main
 [commit]
@@ -15,3 +15,5 @@
 	ff = true
 [credential]
 	helper = store
+[gpg]
+	program = /opt/homebrew/bin/gpg

@@ -1,12 +1,11 @@
 tap "federico-terzi/espanso"
 tap "heroku/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
+tap "krishkrosh/apps"
 tap "libsql/sqld"
 tap "stripe/stripe-cli"
 tap "supabase/tap"
+tap "tobi/try", "https://github.com/tobi/try"
 tap "tursodatabase/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
@@ -14,30 +13,40 @@ brew "bat"
 brew "cocoapods"
 # Select default apps for documents and URL schemes on macOS
 brew "duti"
-# Modern replacement for 'ls'
-brew "exa"
+# Modern, maintained replacement for ls
+brew "eza"
+# Easiest way to build and release mobile apps
+brew "fastlane"
 # Distributed revision control system
 brew "git"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle@8"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
-# Platform built on V8 to build network applications
+# Dependency manager that installs and runs Swift command-line tool packages
+brew "mint"
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Ruby version manager
 brew "rbenv"
 # SMART hard drive monitoring
@@ -46,6 +55,8 @@ brew "smartmontools"
 brew "swiftformat"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Internet file retriever
 brew "wget"
 # Library to create, extract, and modify Windows Imaging files
@@ -56,31 +67,47 @@ brew "xcbeautify"
 brew "xcode-build-server"
 # JavaScript package manager
 brew "yarn"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # Stripe CLI utility
 brew "stripe/stripe-cli/stripe"
 # Supabase CLI
 brew "supabase/tap/supabase"
+# Fresh directories for every vibe - lightweight experiments for people with ADHD
+brew "tobi/try/try"
 brew "tursodatabase/tap/turso"
+# Chromium based browser
+cask "arc"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # Application window manager focusing on simplicity
 cask "divvy"
 # Collaborative team software
 cask "figma"
+# Collaborative team software
+cask "figma@beta"
 # Web browser
 cask "firefox@developer-edition"
+# Fujitsu ScanSnap Scanner software
+cask "fujitsu-scansnap-home"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Desktop client for GitHub repositories
 cask "github"
 # Web browser
 cask "google-chrome"
-# Client for the Google Drive storage service
-cask "google-drive"
+# AI-powered notepad for meetings
+cask "granola"
+# Automated organisation
+cask "hazel"
 # Utility to hide menu bar items
 cask "hiddenbar"
 # Set custom Dock settings for when on different displays
 cask "hidock"
+# Free and open-source media player
+cask "iina"
 # Tool to optimise images to a smaller size
 cask "imageoptim"
 # Tool for multi-language users
@@ -95,8 +122,12 @@ cask "linear-linear"
 cask "monitorcontrol"
 # App to write, plan, collaborate, and get organised
 cask "notion"
+# Calendar for professionals and teams
+cask "notion-calendar"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Get up and running with large language models locally
+cask "ollama-app"
 # Collaboration platform for API development
 cask "postman"
 # Control your tools with a few keystrokes
@@ -105,10 +136,16 @@ cask "raycast"
 cask "setapp"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
-# Instant messaging application focusing on security
-cask "signal"
+# Team communication and collaboration software
+cask "slack"
 # Music streaming service
 cask "spotify"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# Turn your MacBook's trackpad into a precise digital weighing scale
+cask "trackweight"
+# Charting and social-networking for investment traders
+cask "tradingview"
 # Open-source BitTorrent client
 cask "transmission"
 # Tool to hide menu bar icons
@@ -117,48 +154,16 @@ cask "vanilla"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# Native desktop client for WhatsApp
+cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Bear", id: 1091189122
-mas "Codepoint", id: 6444068649
-mas "Disk Speed Test", id: 425264550
-mas "Dropover", id: 1355679052
-mas "Evernote", id: 406056744
-mas "Flashly - Time Zone Convertor", id: 1513749324
-mas "GarageBand", id: 682658836
-mas "Hand Mirror", id: 1502839586
-mas "HEIC Converter", id: 1294126402
-mas "HP Easy Scan", id: 967004861
-mas "HP Smart", id: 1474276998
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Klib", id: 1196268448
-mas "Microsoft Outlook", id: 985367838
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "PDF Squeezer 3", id: 504700302
-mas "Perplexity", id: 6714467650
-mas "Photomator", id: 1444636541
-mas "Pure Paste", id: 1611378436
-mas "Remote Desktop", id: 409907375
-mas "ScreenBrush", id: 1233965871
-mas "ScreenHint", id: 1566621533
-mas "SnippetsLab", id: 1006087419
-mas "Speedtest", id: 1153157709
-mas "Telegram", id: 747648890
-mas "TestFlight", id: 899247664
-mas "The Unarchiver", id: 425424353
-mas "Todoist", id: 585829637
-mas "UnPlugged", id: 423123087
-mas "Unsplash Wallpapers", id: 1284863847
-mas "Xcode", id: 497799835
 vscode "albymor.increment-selection"
 vscode "bradlc.vscode-tailwindcss"
 vscode "burkeholland.simple-react-snippets"
 vscode "dbaeumer.vscode-eslint"
 vscode "dsznajder.es7-react-js-snippets"
 vscode "eamodio.gitlens"
-vscode "equinusocio.vsc-community-material-theme"
 vscode "esbenp.prettier-vscode"
 vscode "formulahendry.auto-rename-tag"
 vscode "github.vscode-pull-request-github"
@@ -170,6 +175,7 @@ vscode "mikestead.dotenv"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
 vscode "prisma.prisma"
 vscode "ritwickdey.liveserver"
 vscode "shd101wyy.markdown-preview-enhanced"

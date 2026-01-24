@@ -1,67 +1,219 @@
 # dotfiles_macos
 
-## Commands
+Personal dotfiles repository for macOS setup and configuration. This repository uses [Dotbot](https://github.com/anishathalye/dotbot) to automate symlinking and setup scripts.
 
-Switch to `.dotfiles` folder:
+## Quick Start
 
-- `brew bundle dump --describe --force --file brew/Brewfile ` for updating brew installs to dotfile
-- `smartctl -a disk1s1` for checking percentage usage for SSD
-- `espano register` to provide accessibility acess, then `espano start` to start using
-- `source ~/.zshrc` to reload the zshrc file
+### Bootstrap a New Mac
 
-## Steps to bootstrap a new Mac
+1. **Install Apple's Command Line Tools** (prerequisites for Git and Homebrew):
+   ```zsh
+   xcode-select --install
+   ```
 
-1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
+2. **Clone this repository**:
+   ```zsh
+   # Using SSH (recommended)
+   git clone git@github.com/desktopofsamuel/dotfiles_macos.git ~/.dotfiles
+   
+   # Or using HTTPS
+   git clone https://github.com/desktopofsamuel/dotfiles_macos.git ~/.dotfiles
+   ```
 
+3. **Run the install script**:
+   ```zsh
+   cd ~/.dotfiles
+   ./install
+   ```
+   
+   The script will:
+   - **Prompt you** to choose whether to enable development environment setup
+   - Create symlinks for all dotfiles (`.zshrc`, `.gitconfig`, etc.)
+   - Install Homebrew
+   - Install NVM (Node Version Manager) - **only if dev setup is enabled**
+   - Prompt you to install packages from categorized Brewfiles:
+     - **Essential** - Core system tools (always available)
+     - **Development** - Dev tools and languages (only if dev setup enabled)
+     - **Others** - Additional applications (always available)
+   - Configure macOS system preferences
+   - Set up default file associations
+   
+   **Note:** You can set up your Mac without the development environment if you only need basic system configuration. Development setup includes Node.js, Python, Ruby tools, IDEs, and development-specific shell configurations.
+
+4. **Reload your shell configuration**:
+   ```zsh
+   source ~/.zshrc
+   ```
+
+5. **Set up Espanso** (text expander):
+   ```zsh
+   espanso register  # Provide accessibility access
+   espanso start     # Start using Espanso
+   ```
+
+## What Gets Installed
+
+### Always Installed (Base Setup)
+
+**Symlinked Files:**
+- `~/.zshrc` → Base shell configuration
+- `~/.gitconfig` → Git configuration
+- `~/.mackup.cfg` → Mackup configuration
+- `~/Library/Preferences/espanso` → Espanso configuration
+
+**Homebrew Packages:**
+- **Taps** (installed automatically) → Homebrew taps/plugins
+- **Essential** → Core system tools (prompted)
+- **Others** → Additional applications (prompted)
+
+### Development Setup (Optional)
+
+If you enable development setup during installation, the following will also be installed:
+
+**Additional Symlinked Files:**
+- `~/.zshrc.dev` → Development-specific shell configuration (auto-loaded by `.zshrc`)
+- `~/Library/Application Support/Code/User/settings.json` → VSCode settings
+- `~/Library/Application Support/Code/User/snippets` → VSCode snippets (if exists)
+
+**Created Directories:**
+- `~/Developer` → Development workspace
+- `~/.nvm` → NVM directory
+
+**Additional Tools:**
+- NVM (Node Version Manager) installation
+- Development Homebrew packages (Node.js, Python, Ruby, IDEs, etc.)
+
+**Development Shell Configuration Includes:**
+- NVM (Node Version Manager)
+- rbenv (Ruby version manager)
+- Python paths
+- pnpm, conda, gradle
+- Android Studio paths
+- Development aliases (Cursor, VSCode)
+
+### macOS System Preferences
+The `setup_macos.zsh` script configures (always applied):
+- Trackpad settings (tap to click, three-finger drag)
+- Dock position and size
+- Screenshot location
+- Energy saving settings
+- Transmission.app preferences
+
+## Useful Commands
+
+### Update Brewfiles
+To update your installed packages to the Brewfiles:
 ```zsh
-xcode-select --install
+cd ~/.dotfiles
+brew bundle dump --describe --force --file brew/Brewfile
 ```
 
-2. Clone repo into new hidden directory.
-
+### Check SSD Health
 ```zsh
-# Use SSH (if set up)...
-git clone git@github.com/desktopofsamuel/dotfiles_macos.git ~/.dotfiles
-
-# ...or use HTTPS and switch remotes later.
-git clone https://github.com/desktopofsamuel/dotfiles_macos.git ~/.dotfiles
+smartctl -a disk1s1
 ```
 
-3. Create symlinks in the Home directory to the real files in the repo.
-
+### Reload Shell Configuration
 ```zsh
-# There are better and less manual ways to do this;
-# investigate install scripts and bootstrapping tools.
-
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+source ~/.zshrc
 ```
 
-4. Install Homebrew, followed by the software listed in the Brewfile.
-
+### Espanso Commands
 ```zsh
-# These could also be in an install script.
-
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# ...or move to the directory first.
-cd ~/.dotfiles/brew && brew bundle --file
+espanso register  # Grant accessibility access
+espanso start     # Start Espanso service
+espanso stop      # Stop Espanso service
 ```
 
-## TODO List
+## Repository Structure
 
-<!-- - Learn how to use [`defaults`](https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command) to record and restore System Preferences and other macOS configurations.
-- Organize these growing steps into multiple script files.
-- Automate symlinking and run script files with a bootstrapping tool like [Dotbot](https://github.com/anishathalye/dotbot).
-- Revisit the list in [`.zshrc`](.zshrc) to customize the shell.
-- Make a checklist of steps to decommission your computer before wiping your hard drive.
-- Create a [bootable USB installer for macOS](https://support.apple.com/en-us/HT201372).
-- Integrate other cloud services into your Dotfiles process (Dropbox, Google Drive, etc.).
-- Find inspiration and examples in other Doffiles repositories at [dotfiles.github.io](https://dotfiles.github.io/).
-- And last, but hopefully not least, [**take my course, _Dotfiles from Start to Finish-ish_**](https://www.udemy.com/course/dotfiles-from-start-to-finish-ish/?referralCode=445BE0B541C48FE85276 "Learn Dotfiles from Start to Finish-ish on Udemy")! -->
+```
+.dotfiles/
+├── brew/                    # Homebrew package files
+│   ├── Brewfile.taps        # Homebrew taps (installed automatically)
+│   ├── Brewfile.essential   # Essential packages
+│   ├── Brewfile.dev         # Development tools
+│   ├── Brewfile.others      # Additional applications
+│   └── Brewfile             # Main Brewfile (legacy)
+├── dotbot/                  # Dotbot submodule (handles symlinking)
+├── espanso/                 # Espanso text expander configuration
+├── git/                     # Git configuration files
+├── VSCode/                  # VSCode settings and extensions (dev only)
+├── install                  # Main installation script
+├── install.conf.yaml        # Dotbot configuration
+├── setup_homebrew.zsh       # Homebrew and package installation script
+├── setup_macos.zsh          # macOS system preferences configuration
+├── extensions.duti          # Default file associations
+├── zshrc                    # Base Zsh shell configuration
+└── zshrc.dev                # Development-specific Zsh configuration (optional)
+```
 
-## Samuel's Todo List:
+## Additional Setup
+
+### Enable "Allow Anywhere" for System Security
+
+If you need to install applications from unidentified developers:
+
+1. Open **System Settings** → **Privacy & Security**
+2. Open Terminal and run:
+   ```zsh
+   sudo spctl --master-disable
+   ```
+3. Enter your password when prompted
+4. Return to **Privacy & Security** settings - the "Anywhere" option should now be enabled
+
+**Note:** This reduces system security. Only enable if necessary.
+
+## Enabling/Disabling Development Setup
+
+### Enable Development Setup After Initial Install
+
+If you initially skipped development setup but want to enable it later:
+
+```zsh
+touch ~/.dev_setup_enabled
+cd ~/.dotfiles
+./install  # Re-run install to set up dev environment
+```
+
+### Disable Development Setup
+
+To disable development setup (removes dev configs but keeps installed packages):
+
+```zsh
+rm ~/.dev_setup_enabled
+# Remove dev-specific symlinks manually if needed
+rm ~/.zshrc.dev
+# Then reload shell
+source ~/.zshrc
+```
+
+## Maintenance
+
+### Updating Dotfiles
+
+To pull the latest changes:
+```zsh
+cd ~/.dotfiles
+git pull origin main
+./install  # Re-run install to apply any new symlinks or configurations
+```
+
+### Adding New Packages
+
+1. Install the package normally with Homebrew:
+   ```zsh
+   brew install <package-name>
+   ```
+
+2. Update the appropriate Brewfile:
+   ```zsh
+   cd ~/.dotfiles
+   brew bundle dump --describe --force --file brew/Brewfile.essential
+   # Or use Brewfile.dev or Brewfile.others depending on the package
+   ```
+
+## Todo List
 
 - [x] macOS System Preference Automation
 - [x] Find package for default macOS app
@@ -75,11 +227,23 @@ cd ~/.dotfiles/brew && brew bundle --file
 
 ---
 
-# Windows
+## Windows Setup Notes
 
-ISO on bootable USB
+### Creating Bootable USB
 
-`Shift + F10` to open CMD, `DISKPART` to create partition tool, `list disk` to list all disks, `clean` to format, `convert gpt` to make it formattable.
+When installing Windows from a bootable USB:
 
-## Setup
-Install via [Ninite](https://ninite.com/)
+1. Boot from the USB drive
+2. Press `Shift + F10` to open Command Prompt
+3. Run `DISKPART` to access the partition tool:
+   ```cmd
+   DISKPART
+   list disk          # List all available disks
+   select disk <n>    # Select the target disk
+   clean              # Format the disk
+   convert gpt        # Convert to GPT format (required for modern systems)
+   ```
+
+### Post-Installation Setup
+
+Install common applications via [Ninite](https://ninite.com/) for quick setup.
