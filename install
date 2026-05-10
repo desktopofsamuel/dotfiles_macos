@@ -10,29 +10,13 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 
-# Prompt for development environment setup
 echo ""
 echo "=========================================="
 echo "  Dotfiles Setup"
 echo "=========================================="
 echo ""
-echo "Do you want to set up the development environment?"
-echo "This includes:"
-echo "  - Development tools (Node, Python, Ruby, etc.)"
-echo "  - IDEs (VSCode, Cursor)"
-echo "  - Development aliases and PATH configurations"
-echo ""
-read -p "Enable development setup? (y/N): " dev_setup_response
-
-if [[ "$dev_setup_response" =~ ^[yY]$ ]]; then
-    echo "Development setup: ENABLED"
-    touch "$HOME/.dev_setup_enabled"
-    export DEV_SETUP_ENABLED=1
-else
-    echo "Development setup: DISABLED"
-    rm -f "$HOME/.dev_setup_enabled"
-    export DEV_SETUP_ENABLED=0
-fi
+echo "The development profile (~/.dev_setup_enabled) is configured when"
+echo "./setup_homebrew.zsh runs (first shell step after links)."
 echo ""
 
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive

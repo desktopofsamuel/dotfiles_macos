@@ -1,39 +1,74 @@
-# Brews (General Development Tools, Lang/Pkg Managers, Cloud CLIs)
+# Brews + VS Code extensions — casks are chosen via brew/casks.zsh
+# Dependency manager for Cocoa projects
 brew "cocoapods"
+
+# Easiest way to build and release mobile apps
 brew "fastlane"
+
+# Distributed revision control system
 brew "git"
+
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+
+# Dependency manager that installs and runs Swift command-line tool packages
 brew "mint"
+
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
+
+# Manage multiple Node.js versions
 brew "nvm"
+
+# Swiss-army knife of markup format conversion
 brew "pandoc"
+
+# Pinentry for GPG on Mac
 brew "pinentry-mac"
+
+# Fast, disk space efficient package manager
 brew "pnpm"
+
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
+
+# Ruby version manager
 brew "rbenv"
+
+# Formatting tool for reformatting Swift code
 brew "swiftformat"
-brew "tree" # Already in essential, decide if you want to duplicate or assume essential is always installed.
-brew "wget" # Already in essential
+
+# Little beautifier tool for xcodebuild
 brew "xcbeautify"
+
+# Build server protocol implementation for integrating Xcode with sourcekit-lsp
 brew "xcode-build-server"
+
+# JavaScript package manager
 brew "yarn"
+
+# Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+
+# Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
+
+# Stripe CLI utility
 brew "stripe/stripe-cli/stripe"
+
+# Supabase CLI
 brew "supabase/tap/supabase"
+
 brew "tursodatabase/tap/turso"
 
-# Casks (Developer Tools & IDEs)
-cask "cursor"
-cask "github"
-cask "linear-linear"
-cask "ollama-app"
-cask "postman"
-cask "visual-studio-code"
-
 # VS Code Extensions
+
 vscode "albymor.increment-selection"
 vscode "bradlc.vscode-tailwindcss"
 vscode "burkeholland.simple-react-snippets"

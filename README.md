@@ -27,14 +27,13 @@ Personal dotfiles repository for macOS setup and configuration. This repository 
    ```
    
    The script will:
-   - **Prompt you** to choose whether to enable development environment setup
    - Create symlinks for all dotfiles (`.zshrc`, `.gitconfig`, etc.)
-   - Install Homebrew
-   - Install NVM (Node Version Manager) - **only if dev setup is enabled**
-   - Prompt you to install packages from categorized Brewfiles:
-     - **Essential** - Core system tools (always available)
-     - **Development** - Dev tools and languages (only if dev setup enabled)
-     - **Others** - Additional applications (always available)
+   - Install Homebrew **only if it is not already installed** (otherwise skips the official installer)
+   - Run **`./setup_homebrew.zsh`**, which asks whether to enable the **development profile** (`~/.dev_setup_enabled`), then Homebrew / bundles / picker (NVM only if you answered **y**)
+   - Run **`brew bundle`** for taps, then **CLI formulae** from [`brew/Brewfile.essential`](brew/Brewfile.essential) (always)
+   - Optionally run [`brew/Brewfile.others`](brew/Brewfile.others) if it contains bundle entries
+   - After Homebrew, **Dotbot** links `~/.zshrc.dev`, VS Code paths, and dev directories **only if** `~/.dev_setup_enabled` exists (created when you answered **y** in `setup_homebrew.zsh`)
+   - Open a **nested picker** (same `setup_homebrew.zsh` run): when the dev profile is **on**, the first category is **Development CLI (Brewfile.dev)** — one row for **`brew bundle` on `Brewfile.dev`**. Other categories list **casks** and **`mas:<id>`** from [`brew/casks.zsh`](brew/casks.zsh). **Space** / **Enter** as before; non-TTY may use **`/dev/tty`** or **y/N per row**
    - Configure macOS system preferences
    - Set up default file associations
    
@@ -57,18 +56,21 @@ Personal dotfiles repository for macOS setup and configuration. This repository 
 
 **Symlinked Files:**
 - `~/.zshrc` → Base shell configuration
-- `~/.gitconfig` → Git configuration
+- `~/.gitconfig` → Git configuration (GitHub HTTPS URLs rewrite to `git@github.com:…`)
+- `~/.ssh/config` → SSH client defaults and GitHub host aliases (`github-personal`, `github-work`, `github-ai`) aligned with the keys loaded in `~/.zshrc`
 - `~/.mackup.cfg` → Mackup configuration
 - `~/Library/Preferences/espanso` → Espanso configuration
 
-**Homebrew Packages:**
-- **Taps** (installed automatically) → Homebrew taps/plugins
-- **Essential** → Core system tools (prompted)
-- **Others** → Additional applications (prompted)
+**Homebrew (via [`setup_homebrew.zsh`](setup_homebrew.zsh)):**
+- **Taps** → [`brew/Brewfile.taps`](brew/Brewfile.taps) (always)
+- **CLI formulae** → [`brew/Brewfile.essential`](brew/Brewfile.essential) (always). [`brew/Brewfile.dev`](brew/Brewfile.dev) runs only if you enabled the **development profile** in [`setup_homebrew.zsh`](setup_homebrew.zsh) **and** you **select** the **Brewfile.dev** row in the nested picker
+- **Optional** → [`brew/Brewfile.others`](brew/Brewfile.others) only if that file has real `brew` / `vscode` / `tap` / etc. lines
+- **Casks & Mac App Store** → chosen in the nested UI; each category array in [`brew/casks.zsh`](brew/casks.zsh) lists **cask tokens** (e.g. `raycast`) and **`mas:<numeric_id>`** on the same lines. Selected casks run `brew install --cask …`; selected MAS rows run `mas install …` (the **`mas`** formula is in `Brewfile.essential`)
+- **Legacy** → [`brew/Brewfile`](brew/Brewfile) is not modified by the installer; keep it as reference or for `brew bundle --file` if you want
 
 ### Development Setup (Optional)
 
-If you enable development setup during installation, the following will also be installed:
+If you enable the development profile when [`setup_homebrew.zsh`](setup_homebrew.zsh) asks (during `./install` or when you run that script alone), the following can apply. **`brew bundle` on `Brewfile.dev`** is an **explicit row** in the nested picker. GUI apps are other rows in the same picker:
 
 **Additional Symlinked Files:**
 - `~/.zshrc.dev` → Development-specific shell configuration (auto-loaded by `.zshrc`)
@@ -81,7 +83,7 @@ If you enable development setup during installation, the following will also be 
 
 **Additional Tools:**
 - NVM (Node Version Manager) installation
-- Development Homebrew packages (Node.js, Python, Ruby, IDEs, etc.)
+- Development CLI packages and VS Code extensions from `brew/Brewfile.dev` (GUI IDEs such as Cursor/VS Code are normally casks in `brew/casks.zsh` unless you list them only as MAS)
 
 **Development Shell Configuration Includes:**
 - NVM (Node Version Manager)
@@ -101,8 +103,23 @@ The `setup_macos.zsh` script configures (always applied):
 
 ## Useful Commands
 
-### Update Brewfiles
-To update your installed packages to the Brewfiles:
+### Sync split Brewfiles from this Mac (taps + formulae + VS Code)
+
+To refresh **only** [`brew/Brewfile.taps`](brew/Brewfile.taps), [`brew/Brewfile.essential`](brew/Brewfile.essential), and [`brew/Brewfile.dev`](brew/Brewfile.dev) from what is currently installed—**without** overwriting the main [`brew/Brewfile`](brew/Brewfile) or [`brew/casks.zsh`](brew/casks.zsh):
+
+```zsh
+cd ~/.dotfiles
+brew update
+brew bundle dump --describe --force --formula --no-vscode --file /tmp/hb-formulae.txt
+brew bundle dump --describe --force --vscode --file /tmp/hb-vscode.txt
+brew bundle dump --describe --force --tap --file /tmp/hb-taps.txt
+python3 brew/_sync_brewfiles_from_dump.py
+```
+
+See the docstring in [`brew/_sync_brewfiles_from_dump.py`](brew/_sync_brewfiles_from_dump.py) for the same steps.
+
+### Dump everything to the main Brewfile (legacy)
+
 ```zsh
 cd ~/.dotfiles
 brew bundle dump --describe --force --file brew/Brewfile
@@ -129,15 +146,18 @@ espanso stop      # Stop Espanso service
 
 ```
 .dotfiles/
-├── brew/                    # Homebrew package files
-│   ├── Brewfile.taps        # Homebrew taps (installed automatically)
-│   ├── Brewfile.essential   # Essential packages
-│   ├── Brewfile.dev         # Development tools
-│   ├── Brewfile.others      # Additional applications
-│   └── Brewfile             # Main Brewfile (legacy)
+├── brew/                    # Homebrew files
+│   ├── Brewfile.taps        # Taps (always)
+│   ├── Brewfile.essential   # CLI formulae (always)
+│   ├── Brewfile.dev         # Dev CLI + VS Code extensions (if dev setup enabled)
+│   ├── Brewfile.others      # Optional extra bundle lines (if any)
+│   ├── casks.zsh            # Nested picker: casks + mas:<id> per category
+│   ├── _sync_brewfiles_from_dump.py  # Merge bundle dumps into split Brewfiles
+│   └── Brewfile             # Main Brewfile (legacy; not driven by install)
 ├── dotbot/                  # Dotbot submodule (handles symlinking)
 ├── espanso/                 # Espanso text expander configuration
 ├── git/                     # Git configuration files
+├── ssh/                     # SSH client config (GitHub aliases + Keychain)
 ├── VSCode/                  # VSCode settings and extensions (dev only)
 ├── install                  # Main installation script
 ├── install.conf.yaml        # Dotbot configuration
@@ -149,6 +169,13 @@ espanso stop      # Stop Espanso service
 ```
 
 ## Additional Setup
+
+### Git and SSH
+
+- **`git/gitconfig`** adds GitHub **HTTPS → SSH** URL rewrites so clones and `origin` URLs using `https://github.com/…` are rewritten to `git@github.com:…` (same host your SSH agent uses).
+- **`ssh/config`** defines **`github-personal`**, **`github-work`**, and **`github-ai`** (each uses the matching `~/.ssh/id_*` with `IdentitiesOnly`), in line with the three keys loaded in **`zshrc`**. Default `git@github.com:…` still uses whatever key GitHub accepts first from the agent; for a **fixed** account, set the remote to e.g. `git@github-work:ORG/REPO.git`.
+- Optional, with your existing **`includeIf`** for **`~/Developer/`** → **`~/.gitconfig-personal`**: add **`[url "git@github-personal:"]`** / **`insteadOf = git@github.com:`** there so repos under **`~/Developer/`** always use **`id_personal`** via the **`github-personal`** host alias.
+- If you already have a **`~/.ssh/config`**, back it up before running **`./install`**, or merge its contents into **`ssh/config`** in this repo.
 
 ### Enable "Allow Anywhere" for System Security
 
@@ -168,12 +195,19 @@ If you need to install applications from unidentified developers:
 
 ### Enable Development Setup After Initial Install
 
-If you initially skipped development setup but want to enable it later:
+Either run Homebrew setup again and answer **y** at the development prompt:
+
+```zsh
+cd ~/.dotfiles
+./setup_homebrew.zsh
+```
+
+Then re-run **`./install`** so Dotbot can create dev symlinks (`~/.zshrc.dev`, VS Code, `~/Developer`, `~/.nvm`), or create the marker and install manually:
 
 ```zsh
 touch ~/.dev_setup_enabled
 cd ~/.dotfiles
-./install  # Re-run install to set up dev environment
+./install
 ```
 
 ### Disable Development Setup
@@ -201,17 +235,16 @@ git pull origin main
 
 ### Adding New Packages
 
-1. Install the package normally with Homebrew:
-   ```zsh
-   brew install <package-name>
-   ```
-
-2. Update the appropriate Brewfile:
+1. **CLI formula** (`brew install …`): install it, then either run the **sync split Brewfiles** commands above (recommended) or dump manually into the right file:
    ```zsh
    cd ~/.dotfiles
    brew bundle dump --describe --force --file brew/Brewfile.essential
-   # Or use Brewfile.dev or Brewfile.others depending on the package
+   # Or target brew/Brewfile.dev for dev-only CLI tools
    ```
+
+2. **GUI app — Homebrew cask** (`brew install --cask …`): add the **cask token** to the appropriate `BREW_CASKS_<category>` array in [`brew/casks.zsh`](brew/casks.zsh). Optionally add a new category slug to `BREW_CASK_CATEGORY_ORDER` and a label in `BREW_CASK_CATEGORY_LABEL`.
+
+3. **Mac App Store app**: add **`mas:<app_id>`** to a `BREW_CASKS_*` array next to related casks, and set **`BREW_MAS_NAME[<id>]="Display Name"`** in the same file. Re-run `./install` or `./setup_homebrew.zsh` to select it in the picker.
 
 ## Todo List
 

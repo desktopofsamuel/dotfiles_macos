@@ -1,0 +1,27 @@
+# Managed in dotfiles — keys match ~/.zshrc (ssh-add … id_personal / id_work / id_ai).
+# Git: `git/gitconfig` rewrites GitHub HTTPS URLs to git@github.com:…
+# For a fixed identity per repo, set remote host to an alias, e.g.
+#   git remote set-url origin git@github-work:ORG/REPO.git
+
+Host *
+  IgnoreUnknown UseKeychain
+  AddKeysToAgent yes
+  UseKeychain yes
+
+Host github-personal
+  HostName github.com
+  User git
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_personal
+
+Host github-work
+  HostName github.com
+  User git
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_work
+
+Host github-ai
+  HostName github.com
+  User git
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ai

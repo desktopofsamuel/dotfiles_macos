@@ -1,26 +1,27 @@
-# Brews (System Utilities)
+# Brews (System Utilities) — casks are chosen interactively via brew/casks.zsh
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-brew "duti"
-brew "eza"
-brew "mackup"
-brew "mas"
-brew "smartmontools"
-brew "tree"
-brew "wget"
-brew "wimlib"
 
-# Casks (macOS Utilities & Enhancements)
-cask "arc"
-cask "figma"
-cask "ghostty"
-cask "whatsapp"
-cask "zoom"
-cask "input-source-pro"
-cask "itsycal"
-cask "keepingyouawake"
-cask "monitorcontrol"
-cask "raycast"
-cask "spotify"
-cask "sf-symbols"
-cask "google-chrome"
-cask "vanilla"
+# Select default apps for documents and URL schemes on macOS
+brew "duti"
+
+# Modern, maintained replacement for ls
+brew "eza"
+
+# Keep your Mac's application settings in sync
+brew "mackup"
+
+# Mac App Store command-line interface
+brew "mas"
+
+# SMART hard drive monitoring
+brew "smartmontools"
+
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+
+# Internet file retriever
+brew "wget"
+
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"

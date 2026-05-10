@@ -1,17 +1,2 @@
-# Casks (Browsers/Comm, Productivity, Media/Finance)
-cask "figma@beta"
-cask "fujitsu-scansnap-home"
-cask "granola"
-cask "notion"
-cask "notion-calendar"
-cask "obsidian"
-cask "slack"
-cask "hazel"
-cask "hiddenbar"
-cask "teamviewer"
-cask "transmission"
-cask "tradingview"
-cask "vlc"
-cask "imageoptim"
-cask "setapp"
-cask "trackweight"
+# Legacy bundle: casks moved to brew/casks.zsh (nested installer).
+# Add here only extra brew/mas/tap lines you still want as a single optional bundle.

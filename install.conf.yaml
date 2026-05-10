@@ -9,6 +9,9 @@
       path: zshrc
     ~/.gitconfig:
       path: git/gitconfig
+    ~/.ssh/config:
+      path: ssh/config
+      create: true
     ~/.mackup.cfg:
       path: mackup/mackup.cfg
     # Espanso (Text Expander)
@@ -16,6 +19,10 @@
       path: espanso
 
 - shell:
+    # Homebrew first: prompts for ~/.dev_setup_enabled so the next step can link dev files
+    - command: ./setup_homebrew.zsh
+      stdout: true
+      stderr: true
     # Conditionally link dev-specific files and create dev directories
     - command: |
         BASEDIR="$(cd "$(dirname "$0")" && pwd)"
@@ -42,9 +49,6 @@
       stdout: true
       stderr: true
     # - [git submodule update --init --recursive, Installing submodules]
-    - command: ./setup_homebrew.zsh
-      stdout: true
-      stderr: true
     - command: ./setup_macos.zsh
       stdout: true
       stderr: true
