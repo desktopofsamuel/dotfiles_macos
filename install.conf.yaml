@@ -9,26 +9,46 @@
       path: zshrc
     ~/.gitconfig:
       path: git/gitconfig
+    ~/.ssh/config:
+      path: ssh/config
+      create: true
     ~/.mackup.cfg:
       path: mackup/mackup.cfg
-    # VSCode
-    ~/Library/Application Support/Code/User/settings.json:
-      path: vscode/settings.json
-    ~/Library/Application Support/Code/User/snippets:
-      path: vscode/snippets
     # Espanso (Text Expander)
     ~/Library/Preferences/espanso:
       path: espanso
 
-- create:
-    - ~/Developer
-    - ~/.nvm
-
 - shell:
-    # - [git submodule update --init --recursive, Installing submodules]
+    # Homebrew first: prompts for ~/.dev_setup_enabled so the next step can link dev files
     - command: ./setup_homebrew.zsh
       stdout: true
       stderr: true
+    # Conditionally link dev-specific files and create dev directories
+    - command: |
+        BASEDIR="$(cd "$(dirname "$0")" && pwd)"
+        if [ -f "$HOME/.dev_setup_enabled" ]; then
+          # Link development zshrc
+          if [ -f "$BASEDIR/zshrc.dev" ]; then
+            ln -sfn "$BASEDIR/zshrc.dev" "$HOME/.zshrc.dev"
+          fi
+          # Link VSCode settings
+          mkdir -p "$HOME/Library/Application Support/Code/User"
+          if [ -f "$BASEDIR/VSCode/settings.json" ]; then
+            ln -sfn "$BASEDIR/VSCode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+          fi
+          if [ -d "$BASEDIR/VSCode/snippets" ]; then
+            ln -sfn "$BASEDIR/VSCode/snippets" "$HOME/Library/Application Support/Code/User/snippets"
+          fi
+          # Create dev directories
+          mkdir -p "$HOME/Developer"
+          mkdir -p "$HOME/.nvm"
+          echo "Development setup files and directories created."
+        else
+          echo "Development setup disabled. Skipping dev-specific files and directories."
+        fi
+      stdout: true
+      stderr: true
+    # - [git submodule update --init --recursive, Installing submodules]
     - command: ./setup_macos.zsh
       stdout: true
       stderr: true

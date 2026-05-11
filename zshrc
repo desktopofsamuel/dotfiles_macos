@@ -1,29 +1,28 @@
-# Add Locations to $PATH ariable
-# Add Visual Studio Code (code)
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
-
-export NVM_DIR="/Users/desktopofsamuel/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Ensure rbenv is initialized BEFORE other PATH modifications that might include Ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)" #setup rbenv
-
+# Base ZSH Configuration
+# This file contains essential shell configuration that works for all setups
 
 # Set Variables
 # Syntax highlighting for man pages using bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
+
 # Change ZSH Options
+eval "$(try init ~/src/tries)"
 
 # Create Alias
 #alias ls='ls -lAFh'
-alias ls='exa -laFh --git'
-alias exa='exa -laFh --git'
-alias c="open $1 -a \"Cursor\""
-alias v="open $1 -a \"Visual Studio Code\""
+alias exa='eza -laFh --gict'
+alias ls='eza'
+alias la='eza -la'
+
+# Auto-start SSH agent and load keys
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+  ssh-add --apple-use-keychain ~/.ssh/id_personal
+  ssh-add --apple-use-keychain ~/.ssh/id_work
+  ssh-add --apple-use-keychain ~/.ssh/id_ai
+fi
 
 # Customisze Prompts
 PROMPT='
@@ -40,28 +39,17 @@ Function mkcd() {
 # Use ZSH Plugins
 
 # Other
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export GPG_TTY=$(tty)
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/desktopofsamuel/.cache/lm-studio/bin"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/desktopofsamuel/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/desktopofsamuel/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/desktopofsamuel/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/desktopofsamuel/miniconda3/bin:$PATH"
+# Load development-specific configuration if enabled
+if [ -f "$HOME/.dev_setup_enabled" ]; then
+    if [ -f "$HOME/.zshrc.dev" ]; then
+        source "$HOME/.zshrc.dev"
     fi
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 
 # pnpm
 export PNPM_HOME="/Users/desktopofsamuel/Library/pnpm"
@@ -70,3 +58,20 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(rbenv init - zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/desktopofsamuel/src/tries/2026-05-07-gcloud-mcp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/desktopofsamuel/src/tries/2026-05-07-gcloud-mcp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/desktopofsamuel/src/tries/2026-05-07-gcloud-mcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/desktopofsamuel/src/tries/2026-05-07-gcloud-mcp/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Created by `pipx` on 2026-05-07 12:46:18
+export PATH="$PATH:/Users/desktopofsamuel/.local/bin"
+
+# Go
+export PATH="$PATH:/opt/homebrew/bin:$HOME/go/bin"

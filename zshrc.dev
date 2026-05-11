@@ -1,0 +1,52 @@
+# Development Environment Configuration
+# This file is only loaded if development setup is enabled
+
+# Add Locations to $PATH variable
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+
+# NVM (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Ensure rbenv is initialized BEFORE other PATH modifications that might include Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)" #setup rbenv
+eval "$(try init ~/Developer/tries)" #setup try
+
+# Development Aliases
+alias c="open $1 -a \"Cursor\""
+alias v="open $1 -a \"Visual Studio Code\""
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/desktopofsamuel/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/desktopofsamuel/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/desktopofsamuel/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/desktopofsamuel/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# pnpm
+export PNPM_HOME="/Users/desktopofsamuel/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+. "$HOME/.local/bin/env"
+export PATH="/opt/homebrew/opt/gradle@8/bin:$PATH"
+
+# Android Studio 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools

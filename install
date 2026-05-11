@@ -9,6 +9,16 @@ DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
+
+echo ""
+echo "=========================================="
+echo "  Dotfiles Setup"
+echo "=========================================="
+echo ""
+echo "The development profile (~/.dev_setup_enabled) is configured when"
+echo "./setup_homebrew.zsh runs (first shell step after links)."
+echo ""
+
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
